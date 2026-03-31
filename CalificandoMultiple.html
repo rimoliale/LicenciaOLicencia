@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Licencia o Licencia</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/my-app.css">
+</head>
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="text-center">
+			<div class="row justify-content-center">
+					<img id="image" src="" class="" style="height: 7rem">
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 text-center">
+					<span id="lblResultado" style="display:inline-block;height:22px;width:81px;z-index:100; left:23px; top:86px; font-family:'Microsoft Sans Serif'; font-size:40pt; position:absolute;"></span>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 text-center">
+					<span id="correctasCant" style="color: green;font-size: 3.5rem">0</span>
+					<span style="font-size: 1.5rem"> correctas de </span>
+					<span id="preguntasHechasCant" style="color: black;font-size: 3.5rem">0</span>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<fieldset class="border p-2">
+						<legend class="w-auto">Opciones</legend>
+						<div class="form-check">
+							<input id="rbtn1" class="form-check-input" style="margin: 12px" type="radio" name="options" onchange="radioChanged($(this))">
+							<label id="lrbtn1" class="form-check-label" style="margin-left:40px": 60px></label>
+						</div>
+						<div class="form-check">
+							<input id="rbtn2" class="form-check-input" style="margin: 12px" type="radio" name="options" onchange="radioChanged($(this))">
+							<label id="lrbtn2" class="form-check-label" style="margin-left:40px"></label>
+						</div>
+						<div class="form-check">
+							<input id="rbtn3" class="form-check-input" style="margin: 12px" type="radio" name="options" onchange="radioChanged($(this))">
+							<label id="lrbtn3" class="form-check-label" style="margin-left:40px"></label>
+						</div>
+						<div class="form-check">
+							<input id="rbtn4" class="form-check-input" style="margin: 12px" type="radio" name="options" onchange="radioChanged($(this))">
+							<label id="lrbtn4" class="form-check-label" style="margin-left:40px"></label>
+						</div>
+						<div class="form-check">
+							<input id="rbtn5" class="form-check-input" style="margin: 12px" type="radio" name="options" onchange="radioChanged($(this))">
+							<label id="lrbtn5" class="form-check-label" style="margin-left:40px"></label>
+						</div>
+					</fieldset>
+					<div class="row justify-content-center">
+					<div class="col-auto">
+						<input type="button" class="btn btn-primary btn-lg" onclick="Calificar()" name="btnCalificar" value="Calificar" id="btnCalificar" />
+					</div>
+				</div>
+				</div>
+
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<span id="lblSeleccionado" class="display-4 font-weight-bold"></span>
+				</div>
+			</div>
+
+
+  </div>
+
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script type="text/javascript">
+      window.onload = function() {
+      document.getElementById("btnCalificar").focus();
+    };
+	
+        var r = document.createElement('script');
+		var s = document.createElement('script');
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		
+        r.type = "text/javascript";	       
+        s.type = "text/javascript";		
+		r.src = "js/Functions-general.js";
+		alert(url.searchParams.get("Idioma"));
+		if(url.searchParams.get("Idioma")== 1)
+		{
+			if(url.searchParams.get("Ejercita") == 3)
+			{
+				s.src = "js/VariablesYFuncionesPhrasalIngles.js";
+			}
+			if(url.searchParams.get("Ejercita") == 4)
+			{
+				s.src = "js/VariablesYFuncionesVerbosComunes264lIngles.js";
+			}
+		}
+		else
+		{
+			if(url.searchParams.get("Idioma")== 2)
+			{
+				if(url.searchParams.get("Ejercita") == 1)
+				{
+					s.src = "js/VariablesYFuncionesVerbosFrances.js";
+				}
+				if(url.searchParams.get("Ejercita") == 2)
+				{
+					s.src = "js/VariablesYFuncionesImagenesFrances.js";
+				}
+			}
+			else
+			{
+				document.getElementById('lblSeleccionado').style.visibility='hidden';
+				s.src = "js/VariablesYFuncionesSeñalamiento.js";
+			}
+		}
+
+		document.body.appendChild(r);
+        document.body.appendChild(s);
+  </script>
+</body>
+</html>
+
+

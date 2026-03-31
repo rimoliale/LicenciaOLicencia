@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Licencia o Licencia</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="text-center">
+    <!-- Botón centrado -->
+		<span id="label1">¿Que desea ejercitar?:</span>
+	<input type="submit" name="btnSeñalamiento" value="Señalamiento" id="Señalamiento" class="btn btn-primary btn-lg" lÍmites="" onClick="ATipoJuego(5)">
+  </div>
+
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script type="text/javascript">
+$(function () {
+	var url_string = window.location.href
+	var url = new URL(url_string);	
+	
+	if(url.searchParams.get("Idioma") == 3)
+	{
+		document.getElementById('VerbosFrances').style.visibility='hidden';
+		document.getElementById('PhrasalVerbs').style.visibility='hidden';
+		document.getElementById('VerbosConImagenes').style.visibility='hidden';
+		document.getElementById('VerbosIngles').style.visibility='hidden';
+		document.getElementById('Señalamiento').style.visibility='visible';
+	};
+});
+
+function ATipoJuego(Ejercita)
+{
+	var url_string = window.location.href
+	var url = new URL(url_string);
+	var Idioma = url.searchParams.get("Idioma");
+	window.location.href = 'TipoJuego.html?Idioma='+Idioma+'&Ejercita='+Ejercita;						
+}	
+  </script>
+</body>
+</html>
